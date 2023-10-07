@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<a>The request code is: </a>
+<?ntr
+
+import requests
+r = requests.get("https://www.google.com/")
+echo("<a>" + str(r.status_code) + "</a>")
+echo(r.text)
+
+?>
+
+<h1>We are the champions</h1>
+
+<?ntr
+echo("My friend")?>

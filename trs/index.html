@@ -1,0 +1,16 @@
+<script type="module">
+
+import dayGridPlugin from '@fullcalendar/daygrid'
+import iCalendarPlugin from '@fullcalendar/icalendar'
+
+var calendar = new Calendar(calendarEl, {
+  plugins: [dayGridPlugin, iCalendarPlugin],
+  events: {
+    url: 'https://calendar.google.com/calendar/ical/204c754e346d1cff878a3a2c9cb191d2b4a67362eb04807cbf0535a7ff55e94e%40group.calendar.google.com/public/basic.ics',
+    format: 'ics'
+  }
+})
+
+calendar.render()
+
+</script>

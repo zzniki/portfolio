@@ -1,0 +1,520 @@
+a, p, h1, h2, h3 { 
+    color: #ffff;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 18px;
+}
+
+body {
+
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+
+* {
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+
+#map {
+
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.popup {
+
+    font-size: 15px;
+
+}
+
+.popup-button {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1em;
+
+    width: 100%;
+
+}
+
+.popup-button > div {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    padding: 1em;
+    width: 90%;
+    background-color: #0077b6;
+    border-radius: 10px;
+
+}
+
+.popup-button > div:hover {
+
+    filter: brightness(90%);
+
+}
+
+.popup-button > div:active {
+
+    filter: brightness(80%);
+
+}
+
+.popup-button > div > a {
+
+    color: white;
+    font-size: 20px;
+
+}
+
+.popup-squarebuts {
+
+    margin-top: 1em;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.popup-squarebuts > div:hover {
+
+    filter: brightness(90%);
+
+}
+
+.popup-squarebuts > div:active {
+
+    filter: brightness(80%);
+
+}
+
+.popup-bsquare {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    width: 4em;
+    height: 4em;
+
+    background-color: #0077b6;
+    border-radius: 10px;
+
+    color: white;
+
+}
+
+.popup-bsquare > i {
+
+    font-size: 30px;
+
+}
+
+.overlay {
+
+    position: absolute;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, .5);
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    transition: opacity .5s, visibility .5s;
+
+}
+
+.div-welcome {
+
+    display: flex;
+
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+
+    width: 50em;
+
+    background-color: black;
+    border-radius: 50px;
+
+    padding: 2em;
+    margin: 2em;
+
+    color: white;
+
+    transition: opacity 1s, visibility 1s;
+
+}
+
+.div-iconshow {
+
+    width: 75%;
+
+}
+
+.div-icon {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 1em;
+
+}
+
+.div-icon > a {
+
+    margin-left: 1em;
+    font-size: larger;
+
+}
+
+.button {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    line-height: 1.2em;
+    background-color: #0077b6;
+    border-radius: 20px;
+
+    padding: 2em;
+
+}
+
+.button:hover {
+
+    filter: brightness(90%);
+
+}
+
+.button:active {
+
+    filter: brightness(80%);
+
+}
+
+.popup-button > div > a {
+
+    color: white;
+
+}
+
+.div-place {
+
+    display: flex;
+
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+
+    width: 50em;
+
+    background-color: black;
+    border-radius: 50px;
+
+    padding: 2em;
+    margin: 2em;
+
+    color: white;
+
+    transition: opacity .5s, visibility .5s;
+
+}
+
+.div-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+    width: 100%;
+
+}
+
+.div-header > i {
+
+    font-size: 25px;
+    cursor: pointer;
+
+}
+
+.div-header > a {
+
+    margin-left: 1em;
+    text-align: center;
+
+}
+
+.div-content {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    max-height: 85vh;
+    width: 100%;
+    overflow-y: auto;
+
+}
+
+.div-img {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+}
+
+.div-img > i {
+
+    font-size: 40px;
+    margin: 1em;
+
+}
+
+.img-place {
+
+    border-radius: 20px;
+
+    max-height: 70vh;
+    max-width: 100%;
+
+    cursor: pointer;
+
+}
+
+.popup-squarebuts.menu {
+
+    width: 10em;
+
+}
+
+.div-search {
+
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+
+    justify-content: top;
+    align-items: left;
+    flex-direction: row;
+
+    width: 50em;
+
+    background-color: black;
+    border-radius: 50px;
+
+    margin: 2em;
+
+    color: white;
+
+    transition: opacity .5s, visibility .5s;
+
+}
+
+
+.div-search > input {
+
+    padding: .5em;
+
+    width: 85%;
+
+    border: 0px solid black;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+    font-size: 30px;
+    padding-left: 1em;
+
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+
+    background-color: black;
+
+}
+
+.div-search > div {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 15%;
+
+    background-color: #303030;
+
+    cursor: pointer;
+
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+}
+
+.div-search > div:hover {
+
+    filter: brightness(120%);
+
+}
+
+.div-search > div:active {
+
+    filter: brightness(140%);
+
+}
+
+.div-search > div > i {
+
+    font-size: 30px;
+
+}
+
+.div-roundbuts {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+
+    z-index: 500;
+
+}
+
+.div-roundbut {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 4em;
+    height: 4em;
+
+    background-color: #0077b6;
+    color: white;
+    cursor: pointer;
+
+    border-radius: 500px;
+    box-shadow: 0px 0px 20px black;
+
+    z-index: 500;
+
+}
+
+.div-roundbut > i {
+
+    font-size: 40px;
+
+}
+
+.div-roundbut:hover {
+
+    filter: brightness(90%);
+
+}
+
+.div-roundbut:active {
+
+    filter: brightness(80%);
+
+}
+
+.button.welcome {
+
+    margin-top: 3em;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .div-welcome {
+
+        margin-top: 5em;
+        padding-top: 0px;
+        margin-left: .5em;
+        margin-right: .5em;
+        overflow-x: hidden;
+
+    }
+
+    .div-welcome > h1 {
+
+        margin-top: .5em;
+
+    }
+
+    .button.welcome {
+
+        margin-top: 1em;
+
+    }
+
+    .div-place {
+
+        margin: 0;
+        padding: 1.5em;
+
+    }
+
+    .div-search {
+
+        margin: 1em;
+
+    }
+
+    .div-search > input {
+        width: 75%;
+    }
+
+    .div-search > div {
+        width: 25%;
+    }
+
+}

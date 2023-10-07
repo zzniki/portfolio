@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- PAGE LOADER -->
+<div class="pageloader" id="pageloader"></div>
+<link rel="stylesheet" href="./loader.css">
+<script src="./loader.js"></script>
+<!-- PAGE LOADER -->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Niki the cat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<body>
+<content id="content">
+  
+  <div class="maintitle">
+    <a class="niki">NIKI</a>
+    <div class="description">
+      <a>A <a class="highlight" id="desc-highlight">WEB</a></a>
+      <p>DEVELOPER</p>
+    </div>
+  </div>
+  
+  <div class="button-down-wrap">
+    <div class="button-down" onclick="scrollDown();">
+      <i class="fa-solid fa-arrow-down"></i>
+    </div>
+  </div>
+    
+  <div style="height: 50em; width: 1em"></div>
+
+  
+<div id="bottom" class="bottom">
+  
+  <div onclick="pageAnim('projects');" id="btn-projects" class="button projects"><a>PROJECTS</a></div>
+  <div onclick="pageAnim('about');" id="btn-about" class="button about"><a>ABOUT ME</a></div>
+  
+</div>
+  
+</content>
+
+<script src="./script.js"></script>
+
+</body>
+</html>

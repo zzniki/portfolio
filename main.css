@@ -1,0 +1,12 @@
+:root {
+  
+    --color-orange: #f06c07;
+    --color-orange-d: #c05606;
+    --color-orange-c: #9c4705;
+    
+}
+
+a, p, h1, h2, h3 { 
+    color: #ffff;
+    font-family: 'League Spartan', sans-serif;
+}

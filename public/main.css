@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fira+Code");
+
+:root {
+
+    --color-text: #ffffff;
+    --color-background: #030303;
+
+    --font-default: "Inter", "sans-serif";
+    --font-console: "Fira Code", "sans-serif";
+
+}
+
+html, body {
+
+    padding: 0px;
+    margin: 0px;
+
+    background-color: var(--color-background);
+
+    overflow-x: hidden;
+
+}
+
+* {
+
+    color: var(--color-text);
+    font-family: var(--font-default);
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+
+.console, .console > * {
+
+    font-family: var(--font-console);
+
+}

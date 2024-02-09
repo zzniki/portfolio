@@ -1,6 +1,6 @@
 <template>
 
-    <div class="subtitle">
+    <div id="subtitle" class="subtitle">
         <a class="console first">a</a>
         <a id="subtitle-text" class="console">w</a>
     </div>
@@ -75,8 +75,13 @@ function typeLoop() {
 
 document.addEventListener("stoppedLoader", (event) => {
 
-    typeLoopInterval = setInterval(typeLoop, typeChangeTime);
-    startTypeAnim(typeTexts[textIndex]);
+    setTimeout(() => {
+        let subtitleElem = document.getElementById("subtitle");
+        subtitleElem.classList.add(hypha.getScopedClass(subtitleElem, "loaded"));
+        
+        typeLoopInterval = setInterval(typeLoop, typeChangeTime);
+        startTypeAnim(typeTexts[textIndex]);
+    }, 1500);
 
 });
 
@@ -96,6 +101,12 @@ document.addEventListener("stoppedLoader", (event) => {
     font-size: 32px;
     user-select: none;
 
+    opacity: 0;
+
+}
+
+.subtitle.loaded {
+    opacity: 1;
 }
 
 .subtitle > .first::after {

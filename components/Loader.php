@@ -22,6 +22,21 @@
 
     }
 
+    function startLoader() {
+        loader.classList.remove("loaded");
+        loader.classList.add("loading");
+    }
+
+    function loaderRedirect(url) {
+        startLoader();
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 250);
+
+        return false;
+    }
+
     document.addEventListener("hyphaEndLoad", (event) => {
         var diff = new Date() - loaderStartTime;
 
@@ -52,7 +67,7 @@
 
     visibility: visible;
 
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out, transform .25s ease-in-out;
 
 }
 
@@ -67,7 +82,7 @@
 
     transition: opacity .6s var(--bezier), transform .6s var(--bezier), width .6s var(--bezier), height .6s var(--bezier);
 
-    animation: startLoading .6s var(--bezier), loader 2s var(--bezier) 2s infinite;
+    animation: loader 2s var(--bezier) 2s infinite;
 
 }
 
@@ -96,8 +111,7 @@
 
 .loader.loaded {
 
-    opacity: 0;
-    visibility: hidden;
+    transform: scale(1, 0);
 
 }
 

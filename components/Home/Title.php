@@ -1,16 +1,33 @@
 <template>
 
     <div class="titlewrap">
-        <div class="title">
+        <div id="title" class="title">
             <!--<img src="/assets/images/cat-laying.png">-->
             <div><a>n</a><a>n</a></div>
             <div><a>i</a><a>i</a></div>
             <div><a>k</a><a>k</a></div>
             <div><a>i</a><a>i</a></div>
         </div>
+        <div id="title-animdiv" class="title-animdiv">
+            <a>k</a>
+        </div>
     </div>
 
 </template>
+
+<script lang="babel" defer="true">
+
+document.addEventListener("stoppedLoader", (event) => {
+
+    let animDiv = document.getElementById("title-animdiv");
+    animDiv.classList.add(hypha.getScopedClass(animDiv, "loaded"));
+
+    let title = document.getElementById("title");
+    title.classList.add(hypha.getScopedClass(title, "loaded"));
+
+});
+
+</script>
 
 <style scoped="true">
 
@@ -56,6 +73,16 @@
 
     gap: 10%;
 
+    opacity: 0;
+
+}
+
+.title.loaded {
+    opacity: 1;
+    clip-path: polygon(0% -1000%, 0% -1000%, 0% 1000%, 0% 1000%);
+
+    animation: titleAppear 1s ease-in-out forwards;
+    animation-delay: .5s;
 }
 
 .title > div {
@@ -96,11 +123,91 @@
 
 }
 
-@media only screen and (max-width: 768px) {
+.title-animdiv {
 
-    .titlewrap > div:not(.title) {
-        display: none;
+    position: absolute;
+
+    margin-top: -8%;
+    left: 0px;
+    width: 0%;
+    
+    background-color: white;
+    mix-blend-mode: difference;
+}
+
+.title-animdiv > a {
+    font-size: 350px;
+    font-weight: 800;
+    opacity: 0;
+}
+
+.title-animdiv.loaded {
+    width: 100%;
+    left: 100%;
+
+    animation: titleAnim 1s ease-in-out;
+    animation-delay: .5s;
+}
+
+@keyframes titleAppear {
+    from {
+        clip-path: polygon(0% -1000%, 0% -1000%, 0% 1000%, 0% 1000%);
     }
+
+    50%, to {
+        clip-path: polygon(0% -1000%, 100% -1000%, 100% 1000%, 0% 1000%);
+    }
+}
+
+@keyframes titleAppearMobile {
+    from {
+        clip-path: polygon(-1000% 0%, -1000% 0%, 1000% 0%, 1000% 0%);
+    }
+
+    50%, to {
+        clip-path: polygon(-1000% 100%, -1000% 0%, 1000% 0%, 1000% 100%);
+    }
+}
+
+@keyframes titleAnim {
+
+    from {
+        left: 0px;
+        width: 0%;
+    }
+
+    50% {
+        left: 0px;
+        width: 100%;
+    }
+
+    to {
+        left: 100%;
+        width: 100%;
+    }
+
+}
+
+@keyframes titleAnimMobile {
+
+    from {
+        top: 0px;
+        height: 0%;
+    }
+
+    50% {
+        top: 0px;
+        height: 100%;
+    }
+
+    to {
+        top: 100%;
+        height: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
 
     .titlewrap {
 
@@ -121,9 +228,39 @@
         margin-right: 5%;
     }
 
+    .title.loaded {
+        animation: titleAppearMobile 1s ease-in-out forwards;
+        animation-delay: .5s;
+    }
+
     .title > div > a {
         font-size: 125px;
         top: -50%;
+    }
+
+    .title-animdiv {
+
+        margin-top: 0px;
+
+        top: 0px;
+        height: 0%;
+
+        width: 100%;
+        left: 0px;
+
+    }
+
+    .title-animdiv.loaded {
+
+        width: 100%;
+        left: 0px;
+
+        height: 100%;
+        top: 100%;
+
+        animation: titleAnimMobile 1s ease-in-out;
+        animation-delay: .5s;
+
     }
 
 }

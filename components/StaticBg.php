@@ -1,6 +1,6 @@
 <template>
 
-    <div id="bg-cursorfollow" class="cursorfollow"><div></div></div>
+    <div id="bg-cursorfollow" class="cursorfollow hidden"><div></div></div>
     <div class="noise"></div>
 
 </template>
@@ -21,6 +21,8 @@ var targetY = 10000;
 var cX = targetX;
 var cY = targetY;
 
+var firstMove = true;
+
 function mouseAnim() {
 
     var distX = targetX - cX;
@@ -33,6 +35,7 @@ function mouseAnim() {
 
     followElem.style.left = parseInt(cX) + "px";
     followElem.style.top = parseInt(cY) + "px";
+
     if (focused) followElem.firstElementChild.style.transform = "scale(3)";
     else followElem.firstElementChild.style.transform = "scale(" + Math.max(totalDist / 100, 1) + ")";
 
@@ -48,6 +51,13 @@ document.addEventListener("mousemove", (event) => {
     targetX = event.pageX - halfWidth;
     targetY = event.pageY - halfWidth;
 
+    if (firstMove) {
+        firstMove = false;
+        cX = targetX;
+        cY = targetY;
+        followElem.classList.remove(hypha.getScopedClass(followElem, "hidden"));
+    }
+
     if (getComputedStyle(event.target).cursor == "pointer") {
         if (!focused) {
             focused = true;
@@ -57,8 +67,6 @@ document.addEventListener("mousemove", (event) => {
             focused = false;
         }
     }
-
-    //console.log(followElem.classList);
 
 });
 
@@ -124,6 +132,10 @@ document.addEventListener("mousemove", (event) => {
 
     background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.00) 80%);
 
+}
+
+.cursorfollow.hidden > div {
+    transform: scale(0) !important;
 }
 
 .cursorfollow > div {

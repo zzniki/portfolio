@@ -4,18 +4,18 @@
         <svg data-src="/assets/images/logo.svg"></svg>
         <div style="flex-grow: 1"></div>
         <div id="header-elems" class="header-elems">
-            <div data-page="home" class="active"><a href="/">home</a><div></div></div>
-            <div data-page="blog"><a href="/blog">blog</a><div></div></div>
-            <div data-page="contact"><a href="/#contact">contact</a><div></div></div>
+            <div data-page="home" class="active"><a onclick="return loaderRedirect('/');" href="/">home</a><div></div></div>
+            <div data-page="blog"><a onclick="return loaderRedirect('/blog');" href="/blog">blog</a><div></div></div>
+            <div data-page="contact"><a onclick="return loaderRedirect('/#contact');" href="/#contact">contact</a><div></div></div>
         </div>
         <div id="menubut" class="menubut"><div></div><div class="second"></div></div>
     </div>
 
     <div id="menu" class="menuwrap">
         <div id="innermenu" class="menu">
-            <div data-page="home" class="active"><a href="/">home</a><div></div></div>
-            <div data-page="blog"><a href="/blog">blog</a><div></div></div>
-            <div data-page="contact"><a href="/#contact">contact</a><div></div></div>
+            <div data-page="home" class="active"><a onclick="return loaderRedirect('/');" href="/">home</a><div></div></div>
+            <div data-page="blog"><a onclick="return loaderRedirect('/blog');" href="/blog">blog</a><div></div></div>
+            <div data-page="contact"><a onclick="return loaderRedirect('/#contact');" href="/#contact">contact</a><div></div></div>
         </div>
     </div>
 

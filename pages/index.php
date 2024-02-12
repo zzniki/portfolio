@@ -109,9 +109,15 @@ section {
 <config>
 {
     "head": [
-        {"elemType": "meta",
-        "name": "google",
-        "content": "notranslate"}
+        {
+            "elemType": "meta",
+            "name": "google",
+            "content": "notranslate"
+        },
+        {
+            "elemType": "title",
+            "inner": "Niki the cat"
+        }
         ]
 }
 </config>

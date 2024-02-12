@@ -129,8 +129,7 @@ class PageRenderer(object):
         # Process
         for bundledScript in bundled:
 
-            for dep in bundledScript.getLangDeps():
-                if (dep not in jsLangDeps): jsLangDeps.append(dep)
+            jsLangDeps += bundledScript.getLangDeps()
 
             if (bundledScript.defer):
                 deferredJs += bundledScript.getCompiledCode()
@@ -138,12 +137,12 @@ class PageRenderer(object):
                 finalJs += bundledScript.getCompiledCode()
 
         for unbundledScript in notBundled:
-            for dep in unbundledScript.getLangDeps():
-                if (dep not in jsLangDeps): jsLangDeps.append(dep)
+            jsLangDeps += unbundledScript.getLangDeps()
 
         finalHead.addChild(HTMLElement("script", attribs=[HTMLAttribute("src", "/hjs/hypha.js")]))
 
         # Dependencies
+        jsLangDeps = list(set(jsLangDeps)) # Removes duplicates
         for dep in jsLangDeps:
             finalHead.addChild(HTMLElement("script", attribs=[HTMLAttribute("src", "/hjs/" + dep)]))
 

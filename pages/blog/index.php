@@ -6,7 +6,7 @@
     
 <?php
 
-$articlesPath = __DIR__ . "/../public/articles";
+$articlesPath = __DIR__ . "/../../public/articles";
 $articleFiles = array_diff(scandir($articlesPath), array(".", ".."));
 
 foreach ($articleFiles as &$filename) {
@@ -21,7 +21,7 @@ foreach ($articleFiles as &$filename) {
 
     $articleUrl = "/blog/" . $pathInfo["filename"];
     
-    echo '<a class="article" href="' . $articleUrl . '">';
+    echo '<a class="article" onclick="return loaderRedirect(' . "'" . $articleUrl . "'" . ');" href="' . $articleUrl . '">';
     echo '<span class="article-cursor">></span>';
 
     echo '<span class="article-inner">';

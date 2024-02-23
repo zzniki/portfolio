@@ -14,6 +14,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    height: 100svh;
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: .25rem;
+}
+
+span {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-block: .25rem;
 }
 
 </style>

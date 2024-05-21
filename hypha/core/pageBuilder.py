@@ -121,6 +121,8 @@ class PageBuilder(object):
         innerHTML = str(BeautifulSoup(innerHTML, "html.parser"))
         innerHTML = innerHTML.replace("<!--<?php", "<?php").replace("?>-->", "?>")
 
+        foundComponents = list(set(foundComponents))
+
         return innerHTML, foundComponents
 
     def buildSingleComponent(self, soup, name):
@@ -166,10 +168,14 @@ class PageBuilder(object):
         styleElem = soup.find("style")
         configElem = soup.find("config")
         scriptElems = soup.find_all("script")
+        headElem = soup.find("head")
 
         layout = Layout(name)
 
         scopePrefix = "l" + str(len(self.layouts))
+
+        if (headElem != None):
+            layout.head, layout.requiredComponents = self.parseTemplate(headElem, scopePrefix)
 
         if (configElem != None):
             parsedConfig = self.parseConfig(builder.getInnerHTML(configElem))
@@ -182,7 +188,8 @@ class PageBuilder(object):
             layout.css = parser.parseCss(styleElem, self.scopedClasses, scopePrefix)
 
         if (templateElem != None):
-            layout.content, layout.requiredComponents = self.parseTemplate(templateElem, scopePrefix)
+            layout.content, requiredComponents = self.parseTemplate(templateElem, scopePrefix)
+            layout.requiredComponents += requiredComponents
         
         return layout
 
@@ -199,10 +206,14 @@ class PageBuilder(object):
         styleElem = soup.find("style")
         configElem = soup.find("config")
         scriptElems = soup.find_all("script")
+        headElem = soup.find("head")
 
         page = Page(name)
 
         scopePrefix = "p" + str(len(self.pages))
+
+        if (headElem != None):
+            page.head, page.requiredComponents = self.parseTemplate(headElem, scopePrefix)
 
         for scriptElem in scriptElems:
             page.scripts.append(parser.parseJS(scriptElem))
@@ -211,7 +222,8 @@ class PageBuilder(object):
             page.css = parser.parseCss(styleElem, self.scopedClasses, scopePrefix)
 
         if (templateElem != None):
-            page.content, page.requiredComponents = self.parseTemplate(templateElem, scopePrefix)
+            page.content, requiredComponents = self.parseTemplate(templateElem, scopePrefix)
+            page.requiredComponents += requiredComponents
         
         if (configElem != None):
             parsedConfig = self.parseConfig(builder.getInnerHTML(configElem))

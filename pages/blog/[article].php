@@ -9,7 +9,9 @@ include_once __DIR__ . "/../../public/includes/Parsedown.php";
 
 $articlesPath = __DIR__ . "/../../public/articles";
 $articleName = $request["params"]["article"];
+
 $articlePath = $articlesPath . "/" . $articleName . ".md";
+$articleMetaPath = $articlesPath . "/" . $articleName . ".json";
 
 if (!file_exists($articlePath)) {
     echo "Not found";
@@ -17,23 +19,95 @@ if (!file_exists($articlePath)) {
 }
 
 $contents = file_get_contents($articlePath);
+$meta = json_decode(file_get_contents($articleMetaPath), true);
+
+$timestamp = strtotime($meta["date"]);
+$dateString = date("M d, Y", $timestamp);
 
 $parsedown = new Parsedown();
+
+echo '<articletitle>' . $meta["title"] . '</articletitle><br>';
+echo '<span style="font-family: var(--font-console);">' . $dateString . "</span>";
+echo '<hr>';
 echo $parsedown->text($contents);
 
 ?>
 
 </article>
 
+<button id="reading-mode" class="reading-mode">Reading Mode</button>
+
 </template>
 
+<script defer="true" lang="babel">
+
+const readModeBut = document.getElementById("reading-mode");
+var readingMode = false;
+
+readModeBut.addEventListener("click", (event) => {
+    if (!readingMode) {
+        document.getElementById("noise").style.display = "none";
+        document.getElementById("bg-cursorfollow").style.display = "none";
+        readModeBut.classList.add("active");
+        readModeBut.innerHTML = "Pretty Mode";
+
+        readingMode = !readingMode;
+    } else {
+        document.getElementById("noise").style.display = "block";
+        document.getElementById("bg-cursorfollow").style.display = "flex";
+        readModeBut.classList.remove("active");
+        readModeBut.innerHTML = "Reading Mode";
+
+        readingMode = !readingMode;
+    }
+});
+
+</script>
+
 <style>
+
+.reading-mode {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+
+    padding-inline: 1rem;
+    padding-block: .5rem;
+
+    color: black;
+    background-color: white;
+
+    outline: none;
+    border: none;
+
+    font-family: var(--font-console);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.reading-mode.active {
+    color: var(--color-text);
+    background-color: transparent;
+}
 
 article {
 
     max-width: 950px;
     margin: 0 auto;
 
+}
+
+articletitle {
+    font-family: var(--font-console);
+    font-weight: bold;
+    font-size: 38px;
+}
+
+hr {
+    margin-left: 0px;
+    width: 20%;
+    height: .125rem;
+    background-color: white;
 }
 
 h1 {
@@ -86,6 +160,10 @@ pre {
 
     margin-left: -20px;
     padding-left: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+    .reading-mode { display: none; }
 }
 
 </style>

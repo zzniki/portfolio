@@ -1,7 +1,7 @@
 <template>
 
     <div id="bg-cursorfollow" class="cursorfollow hidden"><div></div></div>
-    <div class="noise"></div>
+    <div id="noise" class="noise"></div>
 
 </template>
 

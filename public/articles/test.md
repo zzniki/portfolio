@@ -1,5 +1,4 @@
-# Test Article
-## Heading 2
+# Introduction
 Hello this is an article about lorem ipsum
 bla bla sbeause i like bla bla cats
 
@@ -17,3 +16,6 @@ h2:before {
     font-weight: bold;
 }
 ```
+
+## Heading 2
+This is something inside the second heading `h2`

@@ -30,7 +30,7 @@ foreach ($articleFiles as &$filename) {
     echo '</span>';
 
     echo '<span style="flex-grow: 1"></span>';
-    echo '<span class="article-date">' . $meta["date"] . '</span>';
+    echo '<span class="article-date">' . date("M d, Y", strtotime($meta["date"])) . '</span>';
 
     echo '</a>';
 
@@ -84,7 +84,7 @@ foreach ($articleFiles as &$filename) {
 
         width: fit-content;
 
-        padding-inline: 1rem;
+        padding-inline: .5rem;
         padding-block: .25rem;
 
         background-color: var(--color-text);

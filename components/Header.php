@@ -5,6 +5,7 @@
         <div style="flex-grow: 1"></div>
         <div id="header-elems" class="header-elems">
             <div data-page="home"><a onclick="return loaderRedirect('/');" href="/">home</a><div></div></div>
+            <div data-page="projects"><a onclick="return loaderRedirect('/projects');" href="/projects">projects</a><div></div></div>
             <div data-page="blog"><a onclick="return loaderRedirect('/blog');" href="/blog">blog</a><div></div></div>
             <div data-page="about"><a onclick="return loaderRedirect('/about');" href="/about">about</a><div></div></div>
         </div>
@@ -14,6 +15,7 @@
     <div id="menu" class="menuwrap">
         <div id="innermenu" class="menu">
             <div data-page="home"><a onclick="return loaderRedirect('/');" href="/">home</a><div></div></div>
+            <div data-page="projects"><a onclick="return loaderRedirect('/projects');" href="/projects">projects</a><div></div></div>
             <div data-page="blog"><a onclick="return loaderRedirect('/blog');" href="/blog">blog</a><div></div></div>
             <div data-page="about"><a onclick="return loaderRedirect('/about');" href="/about">about</a><div></div></div>
         </div>
@@ -36,6 +38,7 @@ var shown = false;
 function getCurrentPageName() {
     if (window.location.pathname.includes("blog")) return "blog";
     if (window.location.pathname.includes("about")) return "about";
+    if (window.location.pathname.includes("projects")) return "projects";
     switch (window.location.pathname) {
         case "/": return "home";
     }

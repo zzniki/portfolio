@@ -6,7 +6,7 @@
     
 <?php
 
-$articlesPath = __DIR__ . "/../../public/articles";
+$articlesPath = __DIR__ . "/../../public/projects";
 $articleFiles = array_diff(scandir($articlesPath), array(".", ".."));
 $articleFiles = array_reverse($articleFiles);
 
@@ -20,7 +20,7 @@ foreach ($articleFiles as &$filename) {
     $contents = file_get_contents($filepath);
     $meta = json_decode($contents, true);
 
-    $articleUrl = "/blog/" . $pathInfo["filename"];
+    $articleUrl = "/projects/" . $pathInfo["filename"];
     
     echo '<a class="article" onclick="return loaderRedirect(' . "'" . $articleUrl . "'" . ');" href="' . $articleUrl . '">';
     echo '<span class="article-cursor">></span>';

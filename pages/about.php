@@ -2,7 +2,7 @@
 
     <div class="text">
         <h1 class="salute">Hello!</h1>
-        <h2 style="margin-top: .1rem; margin-bottom: .5rem;">My real name is <span class="name">Lluna</span><span class="phonetic">/ˈʎu.nə/</span></h2>
+        <h2 style="margin-top: .1rem; margin-bottom: .5rem;">My real name is <span class="name">Ferran</span><span class="phonetic">/fərán/</span></h2>
         <span>(niki is just a nickname)</span>
     </div>
 

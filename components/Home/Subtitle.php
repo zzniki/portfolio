@@ -11,7 +11,7 @@
 
 const typeSpeed = 100; // millis
 const typeChangeTime = 5000; // millis
-const typeTexts = ["web developer", "designer", "musician", "cat"];
+const typeTexts = ["web developer", "programmer", "musician", "cat"];
 
 var typeElem = document.getElementById("subtitle-text");
 

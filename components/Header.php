@@ -1,7 +1,7 @@
 <template>
 
     <div id="header" class="header">
-        <svg data-src="/assets/images/logo.svg"></svg>
+        <a class="logo" onclick="return loaderRedirect('/');" href="/"><svg data-src="/assets/images/logo.svg"></svg></a>
         <div style="flex-grow: 1"></div>
         <div id="header-elems" class="header-elems">
             <div data-page="home"><a onclick="return loaderRedirect('/');" href="/">home</a><div></div></div>
@@ -132,7 +132,7 @@ document.addEventListener("stoppedLoader", (event) => {
 
 }
 
-.header > svg {
+.header > .logo {
     width: 50px;
     height: 50px;
 }

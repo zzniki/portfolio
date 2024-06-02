@@ -164,6 +164,7 @@ pre {
 
 @media only screen and (max-width: 768px) {
     .reading-mode { display: none; }
+    article { max-width: 75%; }
 }
 
 </style>

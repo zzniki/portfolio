@@ -44,60 +44,71 @@ foreach ($articleFiles as &$filename) {
 
 <style>
 
-    .articles {
-        display: flex;
-        flex-direction: column;
+.articles {
+    display: flex;
+    flex-direction: column;
 
-        align-items: center;
-        width: 100%;
+    align-items: center;
+    width: 100%;
 
-        gap: 1rem;
-    }
+    gap: 1rem;
 
-    .article {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+    margin-top: 3rem;
+}
 
-        width: 75vw;
+.article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-        text-decoration: none;
-    }
+    width: 75vw;
 
-    .article-cursor {
-        font-family: var(--font-console);
-        margin-right: 1rem;
-        font-size: 26px;
+    text-decoration: none;
+}
 
-        transition: transform ease-in-out .25s;
-    }
+.article-cursor {
+    font-family: var(--font-console);
+    margin-right: 1rem;
+    font-size: 26px;
 
-    .article:hover > .article-cursor {
-        transform: translateX(.5rem);
-    }
+    transition: transform ease-in-out .25s;
+}
 
-    .article-inner {
-        display: flex;
-        flex-direction: column;
-    }
+.article:hover > .article-cursor {
+    transform: translateX(.5rem);
+}
 
-    .article-title {
+.article-inner {
+    display: flex;
+    flex-direction: column;
+}
 
-        width: fit-content;
+.article-title {
 
-        padding-inline: .5rem;
-        padding-block: .25rem;
+    width: fit-content;
 
-        background-color: var(--color-text);
-        color: var(--color-background);
+    padding-inline: .5rem;
+    padding-block: .25rem;
 
-        font-family: var(--font-console);
-        font-weight: bold;
-    }
+    background-color: var(--color-text);
+    color: var(--color-background);
+
+    font-family: var(--font-console);
+    font-weight: bold;
+}
+
+.article-date {
+    font-family: var(--font-console);
+    filter: brightness(75%);
+}
+
+@media only screen and (max-width: 768px) {
 
     .article-date {
-        font-family: var(--font-console);
-        filter: brightness(75%);
+        display: none;
     }
+
+}
+
 
 </style>

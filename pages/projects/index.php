@@ -1,103 +1,122 @@
 <template>
-
-<div style="height: 4rem; width: 100%;"></div>
-
-<div class="articles">
-    
-<?php
-
-$articlesPath = __DIR__ . "/../../public/projects";
-$articleFiles = array_diff(scandir($articlesPath), array(".", ".."));
-$articleFiles = array_reverse($articleFiles);
-
-foreach ($articleFiles as &$filename) {
-
-    $filepath = $articlesPath . "/" . $filename;
-    $pathInfo = pathinfo($filepath);
-
-    if ($pathInfo["extension"] != "json") continue;
-    
-    $contents = file_get_contents($filepath);
-    $meta = json_decode($contents, true);
-
-    $articleUrl = "/projects/" . $pathInfo["filename"];
-    
-    echo '<a class="article" onclick="return loaderRedirect(' . "'" . $articleUrl . "'" . ');" href="' . $articleUrl . '">';
-    echo '<span class="article-cursor">></span>';
-
-    echo '<span class="article-inner">';
-    echo '<span class="article-title">' . $meta["title"] . "</span>";
-    echo '<span class="article-preview">' . $meta["preview"] . "</span>";
-    echo '</span>';
-
-    echo '<span style="flex-grow: 1"></span>';
-    echo '<span class="article-date">' . date("M d, Y", strtotime($meta["date"])) . '</span>';
-
-    echo '</a>';
-
-}
-
-?>
-</div>
-
+    <div class="project-wrap">
+        <a href="https://github.com/zzniki/portfolio" target="_blank" class="project">
+            <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
+            <img class="first" src="/assets/images/projects/nikicat.png" alt="">
+            <img class="second" src="/assets/images/projects/nikicat.png" alt="">
+        </a>
+        <a href="https://github.com/zzniki/precerca" target="_blank" class="project">
+            <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
+            <img class="first" src="/assets/images/projects/hands.png" alt="">
+            <img class="second" src="/assets/images/projects/hands.png" alt="">
+        </a>
+        <a href="https://wynnmarket.niki.cat" target="_blank" class="project">
+            <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
+            <img class="first" src="/assets/images/projects/wynnmarket.png" alt="">
+            <img class="second" src="/assets/images/projects/wynnmarket.png" alt="">
+        </a>
+    </div>
 </template>
 
-<style>
+<style scoped="true">
 
-    .articles {
-        display: flex;
+.project-wrap {
+    
+    width: 100%;
+    height: 100dvh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
+}
+
+.project {
+    position: relative;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.project:hover {
+    filter: none;
+}
+
+.project > img {
+    max-height: 10rem;
+}
+
+.project > .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: lighten;
+}
+
+.project > .second {
+    --slice-0: inset(50% 0 50% 0%);
+    --slice-1: inset(0 0 50% 0);
+    --slice-2: inset(0 0 0 0);
+    --slice-3: inset(50% 0 0 0);
+    visibility: visible;
+    position: absolute;
+    display: block;
+    transform: scale(1.25);
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+    top: 0;
+    animation: glitchback 0.1s reverse;
+    animation-timing-function: step-end;
+}
+
+.project:hover > .first {
+    visibility: hidden;
+    transition: visibility .1s;
+}
+
+.project:hover > .second {
+    --slice-2: inset(0% 0% 0 0);
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+    animation: glitch 0.1s;
+    animation-timing-function: step-end;
+}
+
+@keyframes glitch {
+    0% {
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+    }
+    10% {
+    -webkit-clip-path: var(--slice-1);
+    clip-path: var(--slice-1);
+    }
+    to {
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+    }
+}
+@keyframes glitchback {
+    0% {
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+    }
+    10% {
+    -webkit-clip-path: var(--slice-3);
+    clip-path: var(--slice-3);
+    }
+    to {
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .project-wrap {
         flex-direction: column;
-
-        align-items: center;
-        width: 100%;
-
-        gap: 1rem;
     }
 
-    .article {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        width: 75vw;
-
-        text-decoration: none;
-    }
-
-    .article-cursor {
-        font-family: var(--font-console);
-        margin-right: 1rem;
-        font-size: 26px;
-
-        transition: transform ease-in-out .25s;
-    }
-
-    .article:hover > .article-cursor {
-        transform: translateX(.5rem);
-    }
-
-    .article-inner {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .article-title {
-
-        width: fit-content;
-
-        padding-inline: .5rem;
-        padding-block: .25rem;
-
-        background-color: var(--color-text);
-        color: var(--color-background);
-
-        font-family: var(--font-console);
-        font-weight: bold;
-    }
-
-    .article-date {
-        font-family: var(--font-console);
-        filter: brightness(75%);
-    }
+}
 
 </style>

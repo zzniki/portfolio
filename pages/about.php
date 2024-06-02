@@ -35,8 +35,8 @@
             <i class="bi bi-spotify"></i>
         </a>
         
-        <a href="mailto:zznikiofficial@gmail.com">
-            <span>zznikiofficial@gmail.com</span>
+        <a href="mailto:ferrandgr5@gmail.com">
+            <span>ferrandgr5@gmail.com</span>
             <i class="bi bi-envelope-at-fill"></i>
         </a>
     </div>

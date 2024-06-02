@@ -1,3 +1,10 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="en_US" />
+    <title>Niki the cat</title>
+</head>
+
 <template>
 
     <Home.Main/>

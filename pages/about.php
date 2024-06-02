@@ -1,3 +1,7 @@
+<head>
+    <title>about - niki</title>
+</head>
+
 <template>
 
     <div class="text">

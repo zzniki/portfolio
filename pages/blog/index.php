@@ -1,3 +1,7 @@
+<head>
+    <title>blog - niki</title>
+</head>
+
 <template>
 
 <div style="height: 4rem; width: 100%;"></div>

@@ -1,7 +1,11 @@
-# Introduction
-Hello this is an article about lorem ipsum
-bla bla sbeause i like bla bla cats
+# Welcome
+Welcome to my blog!
 
+There is nothing to see here for now, but I'm working on it.
+
+Right now, you can appreciate some beautifully formatted markdown.
+
+# Heading 1
 This is css:
 ```css
 h2:before {

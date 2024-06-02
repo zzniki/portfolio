@@ -1,3 +1,7 @@
+<head>
+    <title>projects - niki</title>
+</head>
+
 <template>
     <div class="project-wrap">
         <a href="https://github.com/zzniki/portfolio" target="_blank" class="project">

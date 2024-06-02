@@ -7,14 +7,15 @@
 
 <script lang="babel" defer="true">
 
+const htmlElem = document.getElementsByTagName("html")[0];
 const speed = .1;
 
-var followElem = document.getElementById("bg-cursorfollow");
-var scopedClassName = hypha.getScopedClass(followElem, "focused");
+const followElem = document.getElementById("bg-cursorfollow");
+const scopedClassName = hypha.getScopedClass(followElem, "focused");
 
 var focused = false;
 
-var halfWidth = parseInt(followElem.getBoundingClientRect().width / 2);
+const halfWidth = parseInt(followElem.getBoundingClientRect().width / 2);
 var targetX = 10000;
 var targetY = 10000;
 
@@ -49,7 +50,7 @@ document.addEventListener("mousemove", (event) => {
     
 
     targetX = event.pageX - halfWidth;
-    targetY = event.pageY - halfWidth;
+    targetY = event.pageY - halfWidth - htmlElem.scrollTop;
 
     if (firstMove) {
         firstMove = false;

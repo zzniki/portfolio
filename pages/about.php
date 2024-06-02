@@ -10,21 +10,23 @@
         <span>(niki is just a nickname)</span>
     </div>
 
-    <div class="middletext">
-        <p>I am an 18 year old geek from Spain (Barcelona)</p>
-        <p>Obsessed with</p>
-        <div class="mobilewrap">
-            <ul class="listfirst">
-                <li>Programming</li>
-                <li>Graphic Design</li>
-                <li>Web Development</li>
-                
-            </ul>
-            <ul class="listsecond">
-                <li>Guitar</li>
-                <li>Music Production</li>
-                <li>Videogames</li>
-            </ul>
+    <div class="mt-wrap">
+        <div class="middletext">
+            <p>I am an 18 year old geek from Spain (Barcelona)</p>
+            <p>Obsessed with</p>
+            <div class="mobilewrap">
+                <ul class="listfirst">
+                    <li>Programming</li>
+                    <li>Graphic Design</li>
+                    <li>Web Development</li>
+                    
+                </ul>
+                <ul class="listsecond">
+                    <li>Guitar</li>
+                    <li>Music Production</li>
+                    <li>Videogames</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -70,6 +72,21 @@
 .phonetic {
     filter: opacity(50%);
     margin-left: .5rem;
+}
+
+.mt-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100dvh;
+
+    z-index: -1;
 }
 
 .middletext {
@@ -182,6 +199,13 @@
         position: relative;
 
         width: 100%;
+    }
+
+    .mt-wrap {
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        z-index: 0;
     }
 }
 

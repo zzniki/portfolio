@@ -1,8 +1,5 @@
-<template>
+<head>
 
-<div style="height: 4rem; width: 100%;"></div>
-
-<article aria-label="Content">
 <?php
 
 include_once __DIR__ . "/../../public/includes/Parsedown.php";
@@ -13,13 +10,32 @@ $articleName = $request["params"]["article"];
 $articlePath = $articlesPath . "/" . $articleName . ".md";
 $articleMetaPath = $articlesPath . "/" . $articleName . ".json";
 
-if (!file_exists($articlePath)) {
-    echo "Not found";
-    exit();
+if (file_exists($articlePath)) {
+    $contents = file_get_contents($articlePath);
+    $meta = json_decode(file_get_contents($articleMetaPath), true);
+    
+    echo "<title>" . $meta["title"] . " - niki</title>";
+} else {
+    $meta = false;
+    $contents = false;
 }
 
-$contents = file_get_contents($articlePath);
-$meta = json_decode(file_get_contents($articleMetaPath), true);
+?>
+
+</head>
+
+<template>
+
+<div style="height: 4rem; width: 100%;"></div>
+
+<article aria-label="Content">
+<?php
+
+if ($contents == false) {
+    echo "Not found";
+    echo "</article>";
+    exit();
+}
 
 $timestamp = strtotime($meta["date"]);
 $dateString = date("M d, Y", $timestamp);
@@ -94,6 +110,8 @@ article {
 
     max-width: 950px;
     margin: 0 auto;
+
+    margin-block: 3rem;
 
 }
 

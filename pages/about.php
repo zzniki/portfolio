@@ -173,6 +173,12 @@
     .listsecond {
         align-items: flex-end !important;
     }
+
+    .icons {
+        position: relative;
+
+        width: 100%;
+    }
 }
 
 </style>

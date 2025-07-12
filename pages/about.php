@@ -12,7 +12,7 @@
 
     <div class="mt-wrap">
         <div class="middletext">
-            <p>I am an 18 year old geek from Spain (Barcelona)</p>
+            <p>I am an 19 year old geek from Spain (Barcelona)</p>
             <p>Obsessed with</p>
             <div class="mobilewrap">
                 <ul class="listfirst">
@@ -22,7 +22,7 @@
                     
                 </ul>
                 <ul class="listsecond">
-                    <li>Guitar</li>
+                    <li>Videography</li>
                     <li>Music Production</li>
                     <li>Videogames</li>
                 </ul>

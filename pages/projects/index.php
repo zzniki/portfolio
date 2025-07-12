@@ -4,21 +4,29 @@
 
 <template>
     <div class="project-wrap">
-        <a href="https://github.com/zzniki/portfolio" target="_blank" class="project">
-            <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
-            <img class="first" src="/assets/images/projects/nikicat.png" alt="">
-            <img class="second" src="/assets/images/projects/nikicat.png" alt="">
-        </a>
-        <a href="https://github.com/zzniki/precerca" target="_blank" class="project">
-            <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
-            <img class="first" src="/assets/images/projects/hands.png" alt="">
-            <img class="second" src="/assets/images/projects/hands.png" alt="">
-        </a>
-        <a href="https://wynnmarket.niki.cat" target="_blank" class="project">
-            <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
-            <img class="first" src="/assets/images/projects/wynnmarket.png" alt="">
-            <img class="second" src="/assets/images/projects/wynnmarket.png" alt="">
-        </a>
+        <div class="project-inner">
+            <span>Portfolio</span>
+            <a href="https://github.com/zzniki/portfolio" target="_blank" class="project">
+                <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
+                <img class="first" src="/assets/images/projects/nikicat.png" alt="">
+                <img class="second" src="/assets/images/projects/nikicat.png" alt="">
+            </a>
+        </div>
+
+        <div class="project-inner">
+            <a href="https://github.com/zzniki/precerca" target="_blank" class="project">
+                <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
+                <img class="first" src="/assets/images/projects/hands.png" alt="">
+                <img class="second" src="/assets/images/projects/hands.png" alt="">
+            </a>
+        </div>
+        <div class="project-inner">
+            <a href="https://wynnmarket.niki.cat" target="_blank" class="project">
+                <img class="overlay" src="/assets/images/tv-overlay.gif" alt="">
+                <img class="first" src="/assets/images/projects/wynnmarket.png" alt="">
+                <img class="second" src="/assets/images/projects/wynnmarket.png" alt="">
+            </a>
+        </div>
     </div>
 </template>
 
@@ -40,6 +48,14 @@
     position: relative;
     cursor: pointer;
     filter: grayscale(100%);
+}
+
+.project-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-console);
 }
 
 .project:hover {
